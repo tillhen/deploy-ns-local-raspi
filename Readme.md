@@ -45,7 +45,7 @@ __Usage:__
 
  1. open console on your raspi eg `ssh pi@192.168.10.4` default-password `raspberry` and run ns-local-install script for an interactive install:
     ```
-    curl -s https://raw.githubusercontent.com/SandraK82/deploy-ns-local-raspi/master/ns-local-install.sh | bash -
+    curl -s https://raw.githubusercontent.com/jcorbett80/deploy-ns-local-raspi/UpdateNSLocalRaspi/ns-local-install.sh | bash -
 	```
 	
 	relax and drink some :coffee: - script runtime *over 1.5 hour* on clean and fresh raspi 1 or 2, and about 30 minutes on a raspi 3.
