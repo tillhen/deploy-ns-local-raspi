@@ -1,6 +1,6 @@
 #!/bin/bash
 
-## from https://raw.githubusercontent.com/SandraK82/deploy-ns-local-raspi/master/ns-local-install.sh
+## from https://raw.githubusercontent.com/jcorbett80/deploy-ns-local-raspi/master/ns-local-install.sh
 
 ## TODO: set /etc/domainname
 
@@ -123,16 +123,19 @@ CPU_MODEL=$( awk '/model name/ {print $4}' < /proc/cpuinfo )
 if [ "$CPU_MODEL" = "ARMv6-compatible" ]
 then
   echo "ARMv6 detected"
-  # install node (on ARMv6 eg. Raspberry Model A/B/B+/A+/Zero)
-  wget https://nodejs.org/dist/v6.7.0/node-v6.7.0-linux-armv6l.tar.xz
-  tar -xvf node-v6.7.0-linux-armv6l.tar.xz
-  cd node-v6.7.0-linux-armv6l
+  # install node (on ARMv7 eg. Raspberry Model A/B/B+/A+/Zero)
+  wget https://nodejs.org/en/download/node-v6.11.2-linux-armv7l.tar.xz
+  tar -xvf node-v6.11.2-linux-armv7l.tar.xz
+  cd node-v6.11.2-linux-armv7l
   sudo cp -R * /usr/local/
-  # check version should be v6.7.0
+  # check version should be v6.11.2
   node -v
   cd ..
   # clean up
   rm node-v6.7.0-linux-armv6l.tar.xz
+  
+  #Updated to this point
+  
   rm -r node-v6.7.0-linux-armv6l
 else
   echo "Assuming ARMv8 (Raspi 3))"
