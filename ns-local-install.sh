@@ -82,9 +82,8 @@ if [[ -z "$INSTALL_MONGO" || -z "$UNITS" || -z "$STORAGE" || -z "$INSTALL_OREF0"
 	done
 	
 	while true; do
-    read -p "Do you want to use mmol or mg [mmol]/mg]? " unit
-    case $unit in
-		"") UNITS="mmol" ; break;;
+    read -p "Do you want to use mmol or mg mmol/mg]? " mmol/mg
+    case $mmol/mg in
         mmol) UNITS="mmol"; break;;
         mg) UNITS="mg"; break;;
         * ) echo "Please answer mmol or mg.";;
