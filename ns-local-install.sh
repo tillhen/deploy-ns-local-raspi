@@ -193,7 +193,7 @@ git checkout dev
 
 # make autoboot
 cd
-curl -o nightscout https://raw.githubusercontent.com/SandraK82/deploy-ns-local-raspi/master/nightscout
+curl -o nightscout https://raw.githubusercontent.com/jcorbett80/deploy-ns-local-raspi/master/nightscout
 sudo mv nightscout /etc/init.d/nightscout
 sudo chmod +x /etc/init.d/nightscout
 sudo /etc/init.d/nightscout start
@@ -211,9 +211,10 @@ esac
 
 # Setup basis oref0 stuff
 # https://openaps.readthedocs.io/en/master/docs/walkthrough/phase-2/oref0-setup.html
-curl -s https://raw.githubusercontent.com/openaps/docs/master/scripts/quick-packages.sh | bash -
 
-mkdir -p ~/src; cd ~/src && git clone -b dev git://github.com/openaps/oref0.git || (cd oref0 && git checkout dev && git pull)
-
-echo "Please continue with step 2 of https://openaps.readthedocs.io/en/master/docs/walkthrough/phase-2/oref0-setup.html"
-echo "cd && ~/src/oref0/bin/oref0-setup.sh"
+echo "Please continue with step 2 of http://openaps.readthedocs.io/en/2017-07-13/docs/walkthrough/phase-2/oref0-setup.html"
+# echo "curl -s https://raw.githubusercontent.com/openaps/docs/master/scripts/quick-packages.sh | bash -"
+# echo "mkdir -p ~/src; cd ~/src && git clone -b dev git://github.com/openaps/oref0.git || (cd oref0 && git checkout dev && git pull)"
+# echo "cd ~/src/oref0 && npm run global-install"
+# echo "cd && ~/src/oref0/bin/oref0-setup.sh"
+# echo "cd && ~/src/oref0/bin/oref0-setup.sh
