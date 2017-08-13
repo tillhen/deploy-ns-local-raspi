@@ -35,21 +35,21 @@ esac
 done
 
 if ! [[ ${INSTALL_MONGO,,} =~ "yes" || ${INSTALL_MONGO,,} =~ "no"  ]]; then
-    echo ""
+    echo "YES / NO"
     echo "Unsupported value for --mongo. Choose either 'yes' or 'no'. "
     echo
     INSTALL_MONGO="" # to force a Usage prompt
 fi
 
 if ! [[ ${UNITS,,} =~ "mmol" || ${UNITS,,} =~ "mg" ]]; then
-    echo ""
+    echo "mmol / mg"
     echo "Unsupported value for --units. Choose either 'mmol' or 'mg'"
     echo
     UNITS="" # to force a Usage prompt
 fi
 
 if ! [[ ${STORAGE,,} =~ "openaps" || ${STORAGE,,} =~ "mongo" ]]; then
-    echo ""
+    echo "openaps / mongo"
     echo "Unsupported value for --storage. Choose either 'openaps' (Nightscout will use OpenAPS files) or 'mongo' (MongoDB backend store)"
     echo
     STORAGE="" # to force a Usage prompt
@@ -57,7 +57,7 @@ fi
 
 
 if ! [[ ${INSTALL_OREF0,,} =~ "yes" || ${INSTALL_OREF0,,} =~ "no"  ]]; then
-    echo ""
+    echo "yes / no"
     echo "Unsupported value for --oref0. Choose either 'yes' or 'no'. "
     echo
     INSTALL_OREF0="" # to force a Usage prompt
