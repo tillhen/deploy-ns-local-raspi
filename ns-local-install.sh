@@ -34,42 +34,42 @@ case $i in
 esac
 done
 
-# if ! [[ ${INSTALL_MONGO,,} =~ "yes" || ${INSTALL_MONGO,,} =~ "no"  ]]; then
-#     echo ""
-#    echo "Unsupported value for --mongo. Choose either 'yes' or 'no'. "
-#    echo
-#    INSTALL_MONGO="" # to force a Usage prompt
-# fi
+if ! [[ ${INSTALL_MONGO,,} =~ "yes" || ${INSTALL_MONGO,,} =~ "no"  ]]; then
+     echo ""
+    echo "Unsupported value for --mongo. Choose either 'yes' or 'no'. "
+    echo
+    INSTALL_MONGO="" # to force a Usage prompt
+ fi
 
-# if ! [[ ${UNITS,,} =~ "mmol" || ${UNITS,,} =~ "mg" ]]; then
-#    echo ""
-#    echo "Unsupported value for --units. Choose either 'mmol' or 'mg'"
-#    echo
-#    UNITS="" # to force a Usage prompt
-# fi
+ if ! [[ ${UNITS,,} =~ "mmol" || ${UNITS,,} =~ "mg" ]]; then
+    echo ""
+    echo "Unsupported value for --units. Choose either 'mmol' or 'mg'"
+    echo
+    UNITS="" # to force a Usage prompt
+ fi
 
-# if ! [[ ${STORAGE,,} =~ "openaps" || ${STORAGE,,} =~ "mongo" ]]; then
-#    echo ""
-#    echo "Unsupported value for --storage. Choose either 'openaps' (Nightscout will use OpenAPS files) or 'mongo' (MongoDB backend store)"
-#    echo
-#    STORAGE="" # to force a Usage prompt
-# fi
-
-
-# if ! [[ ${INSTALL_OREF0,,} =~ "yes" || ${INSTALL_OREF0,,} =~ "no"  ]]; then
-#    echo ""
-#    echo "Unsupported value for --oref0. Choose either 'yes' or 'no'. "
-#    echo
-#    INSTALL_OREF0="" # to force a Usage prompt
-# fi
+ if ! [[ ${STORAGE,,} =~ "openaps" || ${STORAGE,,} =~ "mongo" ]]; then
+    echo ""
+    echo "Unsupported value for --storage. Choose either 'openaps' (Nightscout will use OpenAPS files) or 'mongo' (MongoDB backend store)"
+    echo
+    STORAGE="" # to force a Usage prompt
+ fi
 
 
-# if [[ -z "$INSTALL_MONGO" || -z "$UNITS" || -z "$STORAGE" || -z "$INSTALL_OREF0" ]]; then
-#    echo "Usage: ns-local-install.sh [--mongo=[yes|no]] [--units=[mmol|mg]] [--storage=[openaps|mongo]] [--oref0=[yes|no]]"
-#    read -p "Start interactive setup? [Y]/n " -r
-#    if [[ $REPLY =~ ^[Nn]$ ]]; then
-#        exit
-#    fi
+ if ! [[ ${INSTALL_OREF0,,} =~ "yes" || ${INSTALL_OREF0,,} =~ "no"  ]]; then
+    echo ""
+    echo "Unsupported value for --oref0. Choose either 'yes' or 'no'. "
+    echo
+    INSTALL_OREF0="" # to force a Usage prompt
+ fi
+
+
+ if [[ -z "$INSTALL_MONGO" || -z "$UNITS" || -z "$STORAGE" || -z "$INSTALL_OREF0" ]]; then
+    echo "Usage: ns-local-install.sh [--mongo=[yes|no]] [--units=[mmol|mg]] [--storage=[openaps|mongo]] [--oref0=[yes|no]]"
+    read -p "Start interactive setup? [Y]/n " -r
+    if [[ $REPLY =~ ^[Nn]$ ]]; then
+        exit
+    fi
 
 	while true; do
 	    read -p "Do you want to install MongoDB? [Y]/n" -r
@@ -81,41 +81,41 @@ done
 		esac
 	done
 	
-	while true; do
-    read -p "Do you want to use mmol or mg mmol/mg]? " mmol/mg
-    case $mmol/mg in
-        mmol) UNITS="mmol"; break;;
-        mg) UNITS="mg"; break;;
-        * ) echo "Please answer mmol or mg.";;
-	esac
-	done
+#	while true; do
+#    read -p "Do you want to use mmol or mg mmol/mg]? " mmol/mg
+#    case $mmol/mg in
+#        mmol) UNITS="mmol"; break;;
+#        mg) UNITS="mg"; break;;
+#        * ) echo "Please answer mmol or mg.";;
+#	esac
+#	done
 
-	echo "Nightscout has two options for storage:"
-	echo "openaps: Nightscout will use the OpenAPS files"
-	echo "mongodb: Nightscout will use a MongoDB"
-	while true; do
-    read -p "What storage do you want to use? Choose [mongodb] / openaps " storage
-    case $storage in
-		"") STORAGE="mongo" ; break;;
-        mongodb) STORAGE="mongo"; break;;
-        openaps) STORAGE="openaps"; break;;
-        * ) echo "Please answer mongo or openaps. ";;
-	esac
-	done
+#	echo "Nightscout has two options for storage:"
+#	echo "openaps: Nightscout will use the OpenAPS files"
+#	echo "mongodb: Nightscout will use a MongoDB"
+#	while true; do
+#    read -p "What storage do you want to use? Choose [mongodb] / openaps " storage
+#    case $storage in
+#		"") STORAGE="mongo" ; break;;
+#        mongodb) STORAGE="mongo"; break;;
+#        openaps) STORAGE="openaps"; break;;
+#        * ) echo "Please answer mongo or openaps. ";;
+#	esac
+#	done
 
-    read -p " " -r
-	=$REPLY
+#    read -p " " -r
+#	=$REPLY
+
+#	while true; do
+#		read -p "Do you wish to install OpenAPS basic oref0? [Y]/n" yn
+#		case $yn in
+#			[Yy]* ) break;;
+#			[Nn]* ) break;;
+#		esac
+#	done
+#	INSTALL_OREF0=$yn
 	
-	while true; do
-		read -p "Do you wish to install OpenAPS basic oref0? [Y]/n" yn
-		case $yn in
-			[Yy]* ) break;;
-			[Nn]* ) break;;
-		esac
-	done
-	INSTALL_OREF0=$yn
-	
-fi
+# fi
 
 # get the right node
 CPU_MODEL=$( awk '/model name/ {print $4}' < /proc/cpuinfo )
