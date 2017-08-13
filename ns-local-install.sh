@@ -152,7 +152,7 @@ EXTRAS="etckeeper tcsh lsof"
 sudo apt-get install --assume-yes git npm $EXTRAS
 
 if [[ ${INSTALL_MONGO,,} =~ "yes" || ${INSTALL_MONGO,,} =~ "y"  ]]; then
-	sudo apt-get install --assume-yes git mongodb-server
+	sudo apt-get install mongodb-server
 	# enable mongo
 	sudo systemctl enable mongodb.service
 	# check mongo status
@@ -173,8 +173,8 @@ cd
 
 # get start script
 case $UNITS in
-   mmol) curl -o start_nightscout.sh https://raw.githubusercontent.com/SandraK82/deploy-ns-local-raspi/master/start_nightscout.sh; break;;
-   mg) curl -o start_nightscout.sh https://raw.githubusercontent.com/SandraK82/deploy-ns-local-raspi/master/start_nightscout-mg.sh; break;;
+   mmol) curl -o start_nightscout.sh https://raw.githubusercontent.com/jcorbett80/deploy-ns-local-raspi/master/start_nightscout.sh; break;;
+   mg) curl -o start_nightscout.sh https://raw.githubusercontent.com/jcorbett80/deploy-ns-local-raspi/master/start_nightscout-mg.sh; break;;
 esac
 
 chmod +rx start_nightscout.sh
