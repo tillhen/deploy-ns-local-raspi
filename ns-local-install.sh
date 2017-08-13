@@ -118,30 +118,26 @@ done
 # fi
 
 # get the right node
-CPU_MODEL=$( awk '/model name/ {print $4}' < /proc/cpuinfo )
-if [ "$CPU_MODEL" = "ARMv6-compatible" ]
-then
-  echo "ARMv7 detected"
+# CPU_MODEL=$( awk '/model name/ {print $4}' < /proc/cpuinfo )
+# if [ "$CPU_MODEL" = "ARMv6-compatible" ]
+# then
+ # echo "ARMv7 detected"
   # install node (on ARMv7 eg. Raspberry Model A/B/B+/A+/Zero)
-  wget https://nodejs.org/en/download/node-v6.11.2-linux-armv7l.tar.xz
-  tar -xvf node-v6.11.2-linux-armv7l.tar.xz
-  cd node-v6.11.2-linux-armv7l
-  sudo cp -R * /usr/local/
+ # wget https://nodejs.org/en/download/node-v6.11.2-linux-armv7l.tar.xz
+ # tar -xvf node-v6.11.2-linux-armv7l.tar.xz
+ # cd node-v6.11.2-linux-armv7l
+ # sudo cp -R * /usr/local/
   # check version should be v6.11.2
   node -v
   cd ..
   # clean up
-  rm node-v6.11.2-linux-armv7l.tar.xz  
-  rm -r node-v6.11.2-linux-armv7l
-else
+  # rm node-v6.11.2-linux-armv7l.tar.xz  
+  # rm -r node-v6.11.2-linux-armv7l
+# else
   echo "Assuming ARMv8 (Raspi 3))"
   # install node (on ARMv8 eg Raspberry 3 Model B)
-  wget https://nodejs.org/dist/latest-v6.x/node-v6.11.2-linux-arm64.tar.xz
-  tar -xvzf node-v6.11.2-linux-arm64.tar.xz
-  sudo mv node-v6.11.2-linux-arm64/opt/node
-  sudo mkdir /opt/bin
-  sudo ln -s /opt/node/bin/* /opt/bin/
-  echo "PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/bin"" >> /etc/profile
+  curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+ sudo apt-get install -y nodejs
  fi
 
 # install dependencies 
@@ -165,7 +161,7 @@ sudo npm install npm -g
 sudo npm install n -g
 
 # select matching node
-sudo n 4.6
+sudo n 6.11
 
 # go home
 cd
