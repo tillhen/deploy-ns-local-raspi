@@ -54,7 +54,7 @@ __Usage:__
 	```
 	mkdir src 
     cd src
-    git clone https://github.com/SandraK82/deploy-ns-local-raspi.git
+    git clone https://github.com/jcorbett80/deploy-ns-local-raspi.git
 	cd deploy-ns-local-raspi
 	```
 	You can then use 
@@ -63,7 +63,7 @@ __Usage:__
 	```
 	For example: 
 	```
-	bash ns-local-install.sh --mongo=yes --units=mmol --storage=mongo --oref0=yes
+	bash ns-local-install.sh --mongo=yes --units=mg --storage=mongo --oref0=yes
 	```
 	
  2. after running the script you will have a running nightscout local installation. Now open editor with your config for nightscout.
