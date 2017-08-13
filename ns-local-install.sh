@@ -73,7 +73,8 @@ done
 
 	while true; do
 	    read -p "Do you want to install MongoDB? [Y]/n" -r
-		case $yn in
+		case $REPLY in
+			"") INSTALL_MONGO="yes" ; break;;
 			[Yy]* ) INSTALL_MONGO="yes" ; break;;
 			[Nn]* ) INSTALL_MONGO="no" ; break;;
 			* ) echo "Please answer yes or no";;
