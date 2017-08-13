@@ -172,7 +172,7 @@ case $UNITS in
    mg) curl -o start_nightscout.sh https://raw.githubusercontent.com/jcorbett80/deploy-ns-local-raspi/master/start_nightscout-mg.sh; break;;
 esac
 
-chmod +rx start_nightscout.sh
+chmod +rx /cgm-remote-monitor/start_nightscout.sh
 
 git clone https://github.com/nightscout/cgm-remote-monitor.git
 
