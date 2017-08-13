@@ -34,52 +34,52 @@ case $i in
 esac
 done
 
-if ! [[ ${INSTALL_MONGO,,} =~ "yes" || ${INSTALL_MONGO,,} =~ "no"  ]]; then
-     echo ""
-    echo "Unsupported value for --mongo. Choose either 'yes' or 'no'. "
-    echo
-    INSTALL_MONGO="" # to force a Usage prompt
- fi
+# if ! [[ ${INSTALL_MONGO,,} =~ "yes" || ${INSTALL_MONGO,,} =~ "no"  ]]; then
+#     echo ""
+#    echo "Unsupported value for --mongo. Choose either 'yes' or 'no'. "
+#    echo
+#    INSTALL_MONGO="" # to force a Usage prompt
+# fi
 
- if ! [[ ${UNITS,,} =~ "mmol" || ${UNITS,,} =~ "mg" ]]; then
-    echo ""
-    echo "Unsupported value for --units. Choose either 'mmol' or 'mg'"
-    echo
-    UNITS="" # to force a Usage prompt
- fi
+# if ! [[ ${UNITS,,} =~ "mmol" || ${UNITS,,} =~ "mg" ]]; then
+#    echo ""
+#    echo "Unsupported value for --units. Choose either 'mmol' or 'mg'"
+#    echo
+#    UNITS="" # to force a Usage prompt
+# fi
 
- if ! [[ ${STORAGE,,} =~ "openaps" || ${STORAGE,,} =~ "mongo" ]]; then
-    echo ""
-    echo "Unsupported value for --storage. Choose either 'openaps' (Nightscout will use OpenAPS files) or 'mongo' (MongoDB backend store)"
-    echo
-    STORAGE="" # to force a Usage prompt
- fi
-
-
- if ! [[ ${INSTALL_OREF0,,} =~ "yes" || ${INSTALL_OREF0,,} =~ "no"  ]]; then
-    echo ""
-    echo "Unsupported value for --oref0. Choose either 'yes' or 'no'. "
-    echo
-    INSTALL_OREF0="" # to force a Usage prompt
- fi
+# if ! [[ ${STORAGE,,} =~ "openaps" || ${STORAGE,,} =~ "mongo" ]]; then
+#    echo ""
+#    echo "Unsupported value for --storage. Choose either 'openaps' (Nightscout will use OpenAPS files) or 'mongo' (MongoDB backend store)"
+#    echo
+#    STORAGE="" # to force a Usage prompt
+# fi
 
 
- if [[ -z "$INSTALL_MONGO" || -z "$UNITS" || -z "$STORAGE" || -z "$INSTALL_OREF0" ]]; then
-    echo "Usage: ns-local-install.sh [--mongo=[yes|no]] [--units=[mmol|mg]] [--storage=[openaps|mongo]] [--oref0=[yes|no]]"
-    read -p "Start interactive setup? [Y]/n " -r
-    if [[ $REPLY =~ ^[Nn]$ ]]; then
-        exit
-    fi
+# if ! [[ ${INSTALL_OREF0,,} =~ "yes" || ${INSTALL_OREF0,,} =~ "no"  ]]; then
+#    echo ""
+#    echo "Unsupported value for --oref0. Choose either 'yes' or 'no'. "
+#    echo
+#    INSTALL_OREF0="" # to force a Usage prompt
+# fi
 
-	while true; do
-	    read -p "Do you want to install MongoDB? [Y]/n" -r
-		case $REPLY in
-			"") INSTALL_MONGO="yes" ; break;;
-			[Yy]* ) INSTALL_MONGO="yes" ; break;;
-			[Nn]* ) INSTALL_MONGO="no" ; break;;
-			* ) echo "Please answer yes or no";;
-		esac
-	done
+
+# if [[ -z "$INSTALL_MONGO" || -z "$UNITS" || -z "$STORAGE" || -z "$INSTALL_OREF0" ]]; then
+#    echo "Usage: ns-local-install.sh [--mongo=[yes|no]] [--units=[mmol|mg]] [--storage=[openaps|mongo]] [--oref0=[yes|no]]"
+#    read -p "Start interactive setup? [Y]/n " -r
+#    if [[ $REPLY =~ ^[Nn]$ ]]; then
+#        exit
+#    fi
+
+#	while true; do
+#	    read -p "Do you want to install MongoDB? [Y]/n" -r
+#		case $REPLY in
+#			"") INSTALL_MONGO="yes" ; break;;
+#			[Yy]* ) INSTALL_MONGO="yes" ; break;;
+#			[Nn]* ) INSTALL_MONGO="no" ; break;;
+#			* ) echo "Please answer yes or no";;
+#		esac
+#	done
 	
 #	while true; do
 #    read -p "Do you want to use mmol or mg mmol/mg]? " mmol/mg
