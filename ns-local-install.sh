@@ -122,7 +122,7 @@ fi
 CPU_MODEL=$( awk '/model name/ {print $4}' < /proc/cpuinfo )
 if [ "$CPU_MODEL" = "ARMv6-compatible" ]
 then
-  echo "ARMv6 detected"
+  echo "ARMv7 detected"
   # install node (on ARMv7 eg. Raspberry Model A/B/B+/A+/Zero)
   wget https://nodejs.org/en/download/node-v6.11.2-linux-armv7l.tar.xz
   tar -xvf node-v6.11.2-linux-armv7l.tar.xz
@@ -132,17 +132,18 @@ then
   node -v
   cd ..
   # clean up
-  rm node-v6.7.0-linux-armv6l.tar.xz
-  
-  #Updated to this point
-  
-  rm -r node-v6.7.0-linux-armv6l
+  rm node-v6.11.2-linux-armv7l.tar.xz  
+  rm -r node-v6.11.2-linux-armv7l
 else
   echo "Assuming ARMv8 (Raspi 3))"
   # install node (on ARMv8 eg Raspberry 3 Model B)
-  curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
-  sudo apt-get install -y nodejs
-fi
+  wget https://nodejs.org/dist/latest-v6.x/node-v6.11.2-linux-arm64.tar.xz
+  tar -xvzf node-v6.11.2-linux-arm64.tar.xz
+  sudo mv node-v6.11.2-linux-arm64/opt/node
+  sudo mkdir /opt/bin
+  sudo ln -s /opt/node/bin/* /opt/bin/
+  echo "PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/bin"" >> /etc/profile
+ fi
 
 # install dependencies 
 # get git, mongodb 2.x from apt for now,and npm
