@@ -137,7 +137,7 @@ done
   echo "Assuming ARMv8 (Raspi 3))"
   # install node (on ARMv8 eg Raspberry 3 Model B)
   curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
- sudo apt-get install -y nodejs
+ sudo -E apt-get install -y nodejs
 fi
 
 # install dependencies 
