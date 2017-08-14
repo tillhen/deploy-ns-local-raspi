@@ -138,7 +138,7 @@ done
   # install node (on ARMv8 eg Raspberry 3 Model B)
   curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
  sudo apt-get install -y nodejs
- fi
+fi
 
 # install dependencies 
 # get git, mongodb 2.x from apt for now,and npm
