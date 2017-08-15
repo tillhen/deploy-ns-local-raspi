@@ -117,29 +117,6 @@ done
 	
 # fi
 
-# get the right node
-# CPU_MODEL=$( awk '/model name/ {print $4}' < /proc/cpuinfo )
-# if [ "$CPU_MODEL" = "ARMv6-compatible" ]
-# then
- # echo "ARMv7 detected"
-  # install node (on ARMv7 eg. Raspberry Model A/B/B+/A+/Zero)
- # wget https://nodejs.org/en/download/node-v6.11.2-linux-armv7l.tar.xz
- # tar -xvf node-v6.11.2-linux-armv7l.tar.xz
- # cd node-v6.11.2-linux-armv7l
- # sudo cp -R * /usr/local/
-  # check version should be v6.11.2
-# node -v
-# cd ..
-  # clean up
-  # rm node-v6.11.2-linux-armv7l.tar.xz  
-  # rm -r node-v6.11.2-linux-armv7l
-# else
-  echo "Assuming ARMv8 (Raspi 3))"
-  # install node (on ARMv8 eg Raspberry 3 Model B)
- # curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
-# sudo -E apt-get install -y nodejs
-# fi
-
 # install dependencies 
 # get git, mongodb 2.x from apt for now,and npm
 # optional extra packages to easily debug stuff or to do better maintenance
@@ -156,12 +133,12 @@ if [[ ${INSTALL_MONGO,,} =~ "yes" || ${INSTALL_MONGO,,} =~ "y"  ]]; then
 	#cat /var/log/mongodb/mongodb.log -> should contain: [initandlisten] waiting for connections on port 27017
 fi
 
-sudo npm cache clean -f
-sudo npm install npm -g
-sudo npm install n -g
+# sudo npm cache clean -f
+# sudo npm install npm -g
+# sudo npm install n -g
 
 # select matching node
-sudo n 6.11
+# sudo n 6.11
 
 # go home
 cd
