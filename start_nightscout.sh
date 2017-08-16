@@ -18,13 +18,13 @@ BASE_URL="http://`hostname`:1337/"
 export MONGO_CONNECTION=mongodb://localhost:27017/nightscout
 
 # DISPLAY_UNITS. Choices: mg/dl and mmol. Setting to mmol puts the entire server into mmol mode by default, no further settings needed
-export DISPLAY_UNITS=mmol
-#export DISPLAY_UNITS=mg/dl
+#export DISPLAY_UNITS=mmol
+export DISPLAY_UNITS=mg/dl
 
 export ENABLE="delta direction timeago devicestatus ar2 profile careportal boluscalc food rawbg iob cob bwp cage sage iage treatmentnotify basal pump openaps"
 export DISABLE="upbat errorcodes simplealarms bridge mmconnect loop"
 
-export TIME_FORMAT=24
+export TIME_FORMAT=12
 export NIGHT_MODE=off
 export SHOW_RAWBG=always
 
@@ -93,21 +93,25 @@ export PUMP_URGENT_BATT_P=20
 export PUMP_WARN_BATT_V=1.35
 export PUMP_URGENT_BATT_V=1.30
 
-export OPENAPS_ENABLE_ALERTS=false
+export OPENAPS_ENABLE_ALERTS=true
 export OPENAPS_WARN=30
 export OPENAPS_URGENT=60
 export OPENAPS_FIELDS="status-symbol status-label iob meal-assist rssi freq"
 export OPENAPS_RETRO_FIELDS="status-symbol status-label iob meal-assist rssi"
 
+export PROFILE_MULTIPLE=on
+
 export LOOP_ENABLE_ALERTS=false
 export LOOP_WARN=30
 export LOOP_URGENT=60
 
-export SHOW_PLUGINS=careportal
+export SHOW_PLUGINS=careportal openaps pump iob sage cage bwp food direction smb uam cage_enable_alerts 
 export SHOW_FORECAST="ar2 openaps"
 
 export LANGUAGE=en
 export SCALE_Y=log
 export EDIT_MODE=on
+
+export TIME_FORMAT=12
 
 npm start
