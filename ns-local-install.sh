@@ -120,11 +120,11 @@ done
 # install dependencies 
 # get git, mongodb 2.x from apt for now,and npm
 # optional extra packages to easily debug stuff or to do better maintenance
-# EXTRAS="etckeeper tcsh lsof"
-# sudo apt-get install --assume-yes git npm $EXTRAS
+EXTRAS="etckeeper tcsh lsof"
+sudo apt-get install --assume-yes git npm $EXTRAS
 
 if [[ ${INSTALL_MONGO,,} =~ "yes" || ${INSTALL_MONGO,,} =~ "y"  ]]; then
-	#sudo apt-get install mongodb-server
+	sudo apt-get install mongodb-server
 	# enable mongo
 	sudo systemctl enable mongodb.service
 	# check mongo status
@@ -138,7 +138,7 @@ fi
 # sudo npm install n -g
 
 # select matching node
-# sudo n 6.11
+sudo n 6.11
 
 # go home
 cd
