@@ -117,6 +117,16 @@ done
 	
 # fi
 
+if [ "$CPU_MODEL" = "ARMv8-compatible" ]
+then
+
+echo "Assuming ARMv8 (Raspi 3))"
+  # install node (on ARMv8 eg Raspberry 3 Model B)
+  curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+  sudo apt-get install -y nodejs
+
+fi
+
 # install dependencies 
 # get git, mongodb 2.x from apt for now,and npm
 # optional extra packages to easily debug stuff or to do better maintenance
@@ -133,9 +143,9 @@ if [[ ${INSTALL_MONGO,,} =~ "yes" || ${INSTALL_MONGO,,} =~ "y"  ]]; then
 	#cat /var/log/mongodb/mongodb.log -> should contain: [initandlisten] waiting for connections on port 27017
 fi
 
-# sudo npm cache clean -f
-# sudo npm install npm -g
-# sudo npm install n -g
+sudo npm cache clean -f
+sudo npm install npm -g
+sudo npm install n -g
 
 # select matching node
 sudo n 6.11
