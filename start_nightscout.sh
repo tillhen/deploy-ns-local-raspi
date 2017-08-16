@@ -99,19 +99,16 @@ export OPENAPS_URGENT=60
 export OPENAPS_FIELDS="status-symbol status-label iob meal-assist rssi freq"
 export OPENAPS_RETRO_FIELDS="status-symbol status-label iob meal-assist rssi"
 
-export PROFILE_MULTIPLE=on
-
 export LOOP_ENABLE_ALERTS=false
 export LOOP_WARN=30
 export LOOP_URGENT=60
 
-export SHOW_PLUGINS=careportal openaps pump iob sage cage bwp food direction smb uam cage_enable_alerts 
+export SHOW_PLUGINS=careportal pump iob
 export SHOW_FORECAST="ar2 openaps"
 
 export LANGUAGE=en
 export SCALE_Y=log
 export EDIT_MODE=on
 
-export TIME_FORMAT=12
 
 npm start
