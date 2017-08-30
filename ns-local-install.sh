@@ -116,35 +116,9 @@ done
 	
 # fi
 
-# get the right node
-CPU_MODEL=$( awk '/model name/ {print $4}' < /proc/cpuinfo )
-if [ "$CPU_MODEL" = "ARMv6-compatible" ]
-then
-  echo "ARMv6 detected"
-  # install node (on ARMv6 eg. Raspberry Model A/B/B+/A+/Zero)
-  wget https://nodejs.org/dist/v6.7.0/node-v6.7.0-linux-armv6l.tar.xz
-  tar -xvf node-v6.7.0-linux-armv6l.tar.xz
-  cd node-v6.7.0-linux-armv6l
-  sudo cp -R * /usr/local/
-  # check version should be v6.7.0
-  node -v
-  cd ..
-  # clean up
-  rm node-v6.7.0-linux-armv6l.tar.xz
-  rm -r node-v6.7.0-linux-armv6l
-else
-  echo "Assuming ARMv8 (Raspi 3))"
-  # install node (on ARMv8 eg Raspberry 3 Model B)
-  curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
-  sudo apt-get install -y nodejs
-fi
-
-
 # install dependencies 
 # get git, mongodb 2.x from apt for now,and npm
 # optional extra packages to easily debug stuff or to do better maintenance
-EXTRAS="etckeeper tcsh lsof"
-sudo apt-get install --assume-yes git npm $EXTRAS
 
 if [[ ${INSTALL_MONGO,,} =~ "yes" || ${INSTALL_MONGO,,} =~ "y"  ]]; then
 	sudo apt-get install mongodb-server
@@ -172,14 +146,14 @@ case $UNITS in
    mg) curl -o start_nightscout.sh https://raw.githubusercontent.com/jcorbett80/deploy-ns-local-raspi/master/start_nightscout-mg.sh; break;;
 esac
 
-chmod +rx start_nightscout-mg.sh
+chmod +rx start_nightscout.sh
 
-
+git clone https://github.com/nightscout/cgm-remote-monitor.git
 
 # switching to cgm-remote-monitor directory
 
 cd cgm-remote-monitor/
-git clone https://github.com/nightscout/cgm-remote-monitor.git
+
 # switch to dev (latest development version)
 git checkout dev
 
