@@ -167,11 +167,10 @@ cd
 
 # get start script
 case $UNITS in
-   mmol) curl -o start_nightscout.sh https://raw.githubusercontent.com/jcorbett80/deploy-ns-local-raspi/master/start_nightscout.sh; break;;
    mg) curl -o start_nightscout.sh https://raw.githubusercontent.com/jcorbett80/deploy-ns-local-raspi/master/start_nightscout-mg.sh; break;;
 esac
 
-chmod +rx start_nightscout.sh
+chmod +rx start_nightscout-mg.sh
 
 git clone https://github.com/nightscout/cgm-remote-monitor.git
 
