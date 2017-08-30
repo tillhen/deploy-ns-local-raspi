@@ -24,7 +24,7 @@ export DISPLAY_UNITS=mg/dl
 export ENABLE="delta direction timeago devicestatus ar2 profile careportal boluscalc food rawbg iob cob bwp cage sage iage treatmentnotify basal pump openaps"
 export DISABLE="upbat errorcodes simplealarms bridge mmconnect loop"
 
-export TIME_FORMAT=24
+export TIME_FORMAT=12
 export NIGHT_MODE=off
 export SHOW_RAWBG=always
 
