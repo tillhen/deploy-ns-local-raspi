@@ -116,12 +116,37 @@ done
 	
 # fi
 
-# install dependencies 
+
+
+# get the right node
+CPU_MODEL=$( awk '/model name/ {print $4}' < /proc/cpuinfo )
+if [ "$CPU_MODEL" = "ARMv7-compatible" ]
+then
+  echo "ARMv6 detected"
+  # install node (on ARMv6 eg. Raspberry Model A/B/B+/A+/Zero)
+  curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+  sudo apt-get install -y nodejs
+  # check version should be v8.4.0
+  node -v
+  cd ..
+  # clean up
+  rm node-v8.4.0-linux-armv7l.tar.xz
+  rm -r node-v8.4.0-linux-armv71
+else
+  echo "Assuming ARMv8 (Raspi 3))"
+  # install node (on ARMv8 eg Raspberry 3 Model B)
+  curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+  sudo apt-get install -y nodejs
+fi
+
+# install dependencies
+sudo apt-get install -y build-essential
+
 # get git, mongodb 2.x from apt for now,and npm
-# optional extra packages to easily debug stuff or to do better maintenance
+
 
 if [[ ${INSTALL_MONGO,,} =~ "yes" || ${INSTALL_MONGO,,} =~ "y"  ]]; then
-	sudo apt-get install mongodb-server
+	sudo apt-get install --assume-yes git mongodb-server
 	# enable mongo
 	sudo systemctl enable mongodb.service
 	# check mongo status
@@ -135,7 +160,7 @@ sudo npm install npm -g
 sudo npm install n -g
 
 # select matching node
-sudo n 6.11
+sudo n 8.4
 
 # go home
 cd
