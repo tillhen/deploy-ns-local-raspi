@@ -165,8 +165,6 @@ sudo n 8.4
 # go home
 cd
 
-sudo aptitude nodejs-legacy
-
 # get start script
 case $UNITS in
    mg) curl -o start_nightscout.sh https://raw.githubusercontent.com/jcorbett80/deploy-ns-local-raspi/master/start_nightscout.sh; break;;
@@ -195,6 +193,8 @@ sudo chmod +x /etc/init.d/nightscout
 sudo /etc/init.d/nightscout start
 sudo /etc/init.d/nightscout status
 sudo insserv -d nightscout
+
+sudo aptitude install nodejs-legacy
 
 echo "deploy nightscout on raspi done :)"
 echo "Dont forget to edit: /home/pi/cgm-remote-monitor/start_nightscout.sh"
