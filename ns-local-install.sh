@@ -165,6 +165,8 @@ sudo n 8.4
 # go home
 cd
 
+sudo aptitude node-legacy
+
 # get start script
 case $UNITS in
    mg) curl -o start_nightscout.sh https://raw.githubusercontent.com/jcorbett80/deploy-ns-local-raspi/master/start_nightscout.sh; break;;
