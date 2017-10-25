@@ -165,7 +165,7 @@ sudo n 8.4
 # go home
 cd
 
-sudo aptitude node-legacy
+sudo aptitude nodejs-legacy
 
 # get start script
 case $UNITS in
