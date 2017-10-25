@@ -67,7 +67,7 @@ __Usage:__
 	```
 	
  2. after running the script you will have a running nightscout local installation. Now open editor with your config for nightscout.
-    `nano /home/pi/cgm-remote-monitor/start-nightscout.sh`
+    `nano /home/pi/cgm-remote-monitor/start_nightscout.sh`
      You need to configure at least the lines at the top of the file:
     `CUSTOM_TITLE=mysitename_without_spaces`
     `API_SECRET=my_12_characters_or_more_password``
