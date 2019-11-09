@@ -1,6 +1,6 @@
 #!/bin/bash
 
-## from https://raw.githubusercontent.com/jcorbett80/deploy-ns-local-raspi/master/ns-local-install.sh
+## from https://raw.githubusercontent.com/tillhen/deploy-ns-local-raspi/master/ns-local-install.sh
 
 ## TODO: set /etc/domainname
 
@@ -167,7 +167,7 @@ cd
 
 # get start script
 case $UNITS in
-   mg) curl -o start_nightscout.sh https://raw.githubusercontent.com/jcorbett80/deploy-ns-local-raspi/master/start_nightscout.sh; break;;
+   mg) curl -o start_nightscout.sh https://raw.githubusercontent.com/tillhen/deploy-ns-local-raspi/master/start_nightscout.sh; break;;
 esac
 
 chmod +rx start_nightscout.sh
@@ -187,7 +187,7 @@ git checkout dev
 
 # make autoboot
 cd
-curl -o nightscout https://raw.githubusercontent.com/jcorbett80/deploy-ns-local-raspi/master/nightscout
+curl -o nightscout https://raw.githubusercontent.com/tillhen/deploy-ns-local-raspi/master/nightscout
 sudo mv nightscout /etc/init.d/nightscout
 sudo chmod +x /etc/init.d/nightscout
 sudo /etc/init.d/nightscout start
