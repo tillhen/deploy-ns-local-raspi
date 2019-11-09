@@ -19,21 +19,26 @@ export MONGO_CONNECTION=mongodb://localhost:27017/nightscout
 
 # DISPLAY_UNITS. Choices: mg/dl and mmol. Setting to mmol puts the entire server into mmol mode by default, no further settings needed
 #export DISPLAY_UNITS=mmol
-export DISPLAY_UNITS=mg/dl
+export DISPLAY_UNITS=mmol
 
-export ENABLE="delta direction timeago devicestatus ar2 profile careportal boluscalc food rawbg iob cob bwp cage sage iage treatmentnotify basal pump openaps"
-export DISABLE="upbat errorcodes simplealarms bridge mmconnect loop"
+export ENABLE="delta direction timeago devicestatus ar2 profile careportal boluscalc food rawbg iob cors cob bwp cage sage iage treatmentnotify basal pump openaps bage"
+export DISABLE="simplealarms bridge mmconnect loop upbat"
 
-export TIME_FORMAT=12
+export TIME_FORMAT=24
 export NIGHT_MODE=off
 export SHOW_RAWBG=always
 
 export THEME=colors
 
-export ALARM_TIMEAGO_WARN=on
+export ALARM_TIMEAGO_WARN=off
 export ALARM_TIMEAGO_WARN_MINS=15
-export ALARM_TIMEAGO_URGENT=on
+export ALARM_TIMEAGO_URGENT=off
 export ALARM_TIMEAGO_URGENT_MINS=30
+
+export BG_HIGH=200
+export BG_TARGET_TOP=180
+export BG_LOW=65
+export BG_TARGET_BOTTOM=70
 
 export PROFILE_HISTORY=off
 export PROFILE_MULTIPLE=off
@@ -44,10 +49,10 @@ export BWP_SNOOZE_MINS=10
 export BWP_SNOOZE=0.10
 
 export CAGE_ENABLE_ALERTS=true
-export export CAGE_INFO=44
+export CAGE_INFO=44
 export CAGE_WARN=48
 export CAGE_URGENT=72
-export CAGE_DISPLAY=hours
+export CAGE_DISPLAY=days
 
 export SAGE_ENABLE_ALERTS=false
 export SAGE_INFO=144
@@ -58,6 +63,12 @@ export IAGE_ENABLE_ALERTS=false
 export IAGE_INFO=44
 export IAGE_WARN=48
 export IAGE_URGENT=72
+
+export BAGE_ENABLE_ALERTS=false
+export BAGE_INFO=44
+export BAGE_WARN=48
+export BAGE_URGENT=72
+export BAGE_DISPLAY=days
 
 export TREATMENTNOTIFY_SNOOZE_MINS=10
 
@@ -86,10 +97,10 @@ export PUMP_FIELDS="reservoir battery clock status"
 export PUMP_RETRO_FIELDS="reservoir battery clock"
 export PUMP_WARN_CLOCK=30
 export PUMP_URGENT_CLOCK=60
-export PUMP_WARN_RES=50
+export PUMP_WARN_RES=40
 export PUMP_URGENT_RES=10
-export PUMP_WARN_BATT_P=30
-export PUMP_URGENT_BATT_P=20
+export PUMP_WARN_BATT_P=20
+export PUMP_URGENT_BATT_P=10
 export PUMP_WARN_BATT_V=1.35
 export PUMP_URGENT_BATT_V=1.30
 
@@ -103,10 +114,10 @@ export LOOP_ENABLE_ALERTS=false
 export LOOP_WARN=30
 export LOOP_URGENT=60
 
-export SHOW_PLUGINS=careportal pump iob
+export SHOW_PLUGINS="careportal direction bage iob cob cage sage iage bwg rawbg basal bwp timeago devicestatus errorcodes boluscalc food delta profile focusHours"
 export SHOW_FORECAST="ar2 openaps"
 
-export LANGUAGE=en
+export LANGUAGE=de
 export SCALE_Y=log
 export EDIT_MODE=on
 
