@@ -130,8 +130,8 @@ then
   node -v
   cd ..
   # clean up
-  rm node-v8.4.0-linux-armv7l.tar.xz
-  rm -r node-v8.4.0-linux-armv71
+  rm node-v10.19.0-linux-armv7l.tar.xz
+  rm -r node-v10.19.0-linux-armv7l
 else
   echo "Assuming ARMv8 (Raspi 3))"
   # install node (on ARMv8 eg Raspberry 3 Model B)
@@ -187,7 +187,7 @@ git checkout dev
 
 # make autoboot
 cd
-curl -o nightscout https://raw.githubusercontent.com/tillhen/deploy-ns-local-raspi/master/nightscout
+curl -o nightscout https://github.com/tillhen/deploy-ns-local-raspi/blob/master/nightscout
 sudo mv nightscout /etc/init.d/nightscout
 sudo chmod +x /etc/init.d/nightscout
 sudo /etc/init.d/nightscout start
