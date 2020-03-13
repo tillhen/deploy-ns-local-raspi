@@ -1,6 +1,6 @@
 #!/bin/bash
 
-## from https://raw.githubusercontent.com/tillhen/deploy-ns-local-raspi/master/ns-local-install.sh
+## from https://github.com/tillhen/deploy-ns-local-raspi/blob/master/ns-local-install.sh
 
 ## TODO: set /etc/domainname
 
@@ -124,9 +124,9 @@ if [ "$CPU_MODEL" = "ARMv7-compatible" ]
 then
   echo "ARMv6 detected"
   # install node (on ARMv6 eg. Raspberry Model A/B/B+/A+/Zero)
-  curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+  curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
   sudo apt-get install -y nodejs
-  # check version should be v8.4.0
+  # check version should be v10.19.0
   node -v
   cd ..
   # clean up
@@ -135,7 +135,7 @@ then
 else
   echo "Assuming ARMv8 (Raspi 3))"
   # install node (on ARMv8 eg Raspberry 3 Model B)
-  curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+  curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
   sudo apt-get install -y nodejs
 fi
 
@@ -160,14 +160,14 @@ sudo npm install npm -g
 sudo npm install n -g
 
 # select matching node
-sudo n 8.4
+sudo n 10.19.0
 
 # go home
 cd
 
 # get start script
 case $UNITS in
-   mg) curl -o start_nightscout.sh https://raw.githubusercontent.com/tillhen/deploy-ns-local-raspi/master/start_nightscout.sh; break;;
+   mg) curl -o start_nightscout.sh https://github.com/tillhen/deploy-ns-local-raspi/blob/master/start_nightscout.sh; break;;
 esac
 
 chmod +rx start_nightscout.sh
