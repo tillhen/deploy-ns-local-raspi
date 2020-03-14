@@ -167,7 +167,7 @@ cd
 
 # get start script
 case $UNITS in
-   mg) curl -o start_nightscout.sh https://raw.githubusercontent.com/tillhen/deploy-ns-local-raspi/master/nightscout; break;;
+   mg) curl -o start_nightscout.sh https://raw.githubusercontent.com/tillhen/deploy-ns-local-raspi/master/start_nightscout.sh; break;;
 esac
 
 chmod +rx start_nightscout.sh
