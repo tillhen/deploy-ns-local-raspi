@@ -33,6 +33,7 @@ __Prerequisites__
 A2. Hostname ==> Set your hostname. This will be used for the URL of your Nightscout 
 A4. SSH ==> Enable SSH for remote access
 ```
+
 3. Tweak your Raspberry Pi.
 See for example: https://openaps.readthedocs.io/en/latest/docs/walkthrough/phase-0/rpi.html for information on setting up your Raspberry Pi:
 - Configure WiFi Settings
