@@ -41,6 +41,14 @@ See for example: https://openaps.readthedocs.io/en/latest/docs/walkthrough/phase
 - Disable HDMI to conserve power [optional]
 - Configure Bluetooth Low Energy tethering [optional]
 
+4. Install git & insserv.
+    ```
+    sudo apt-get install git
+       ```
+    ```
+    sudo apt-get install insserv
+       ```
+       
 __Usage:__
 
  1. open console on your raspi eg `ssh pi@192.168.10.4` default-password `raspberry` and run ns-local-install script for an interactive install:
